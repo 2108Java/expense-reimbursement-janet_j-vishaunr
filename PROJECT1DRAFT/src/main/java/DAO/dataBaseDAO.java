@@ -8,12 +8,12 @@ public interface dataBaseDAO {
 
 	boolean selectUser(String username, String password);
 
-	ArrayList <Employee> selectAccount(String first_name, String last_name, int id);
+	ArrayList <Employee> selectAccount(String first_name, String last_name,String title,int id);
 
 	boolean updateAccount(String first_name, String last_name, int id, String reimbursementType,boolean requestReimbursement);
 
-	ArrayList<Employee> selectAll(String first_name, String last_name, int id);
+	ArrayList<Employee> selectAll();
 
-	boolean updateAccountAgain(String first_name, String last_name, int id, boolean approve);
+	boolean updateAccountAgain( int id, boolean approve);
 
 }

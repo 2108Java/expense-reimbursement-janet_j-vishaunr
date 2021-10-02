@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="Models.Authentication"/>
+    <fullyQualifiedTypeName name="Service.authenticationService"/>
+    <fullyQualifiedTypeName name="Models.Employee"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+</qualifiedTypeNameHistroy>

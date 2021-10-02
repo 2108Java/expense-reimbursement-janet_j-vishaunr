@@ -1,0 +1,13 @@
+package Models;
+
+public class Manager {
+	private String first_Name;
+	private String last_name;
+	private String title;
+	private int id;
+///////////////////////////////////////////////////
+	private String reimbursementType;
+	private boolean requestReimbursement;
+	private boolean approve;
+	private String emailAddress;
+}

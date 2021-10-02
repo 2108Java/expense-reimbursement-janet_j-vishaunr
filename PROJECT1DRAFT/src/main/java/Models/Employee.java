@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.ArrayList;
+
 public class Employee {
 	private String first_Name;
 	private String last_name;
@@ -7,7 +9,6 @@ public class Employee {
 	private int id;
 	private String reimbursementType;
 	private boolean requestReimbursement;
-	private boolean approve;
 	private String emailAddress;
 	public String getFirst_Name() {
 		return first_Name;
@@ -45,15 +46,30 @@ public class Employee {
 	public void setRequestReimbursement(boolean requestReimbursement) {
 		this.requestReimbursement = requestReimbursement;
 	}
-	public boolean getApprove() {
-		return approve;
-	}
-	public void setApprove(boolean approve) {
-		this.approve = approve;
+
+
+	public Employee(String first_Name, String last_name, String title, int id) {
+		super();
+		this.first_Name = first_Name;
+		this.last_name = last_name;
+		this.title = title;
+		this.id = id;
+	
+
+		
 	}
 
+	public Employee(String first_Name, String last_name) {
+		super();
+		this.first_Name = first_Name;
+		this.last_name = last_name;
+	
+
+		
+	}
+	
 	public Employee(String first_Name, String last_name, String title, int id, String reimbursementType,
-			boolean requestReimbursement, boolean approve) {
+			boolean requestReimbursement, String emailAddress) {
 		super();
 		this.first_Name = first_Name;
 		this.last_name = last_name;
@@ -61,13 +77,24 @@ public class Employee {
 		this.id = id;
 		this.reimbursementType = reimbursementType;
 		this.requestReimbursement = requestReimbursement;
-		this.approve = approve;
-		
+		this.emailAddress = emailAddress;
 	}
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+	@Override
+	public String toString() {
+		return "Employee [first_Name=" + first_Name + ", last_name=" + last_name + ", title=" + title + ", id=" + id
+				+ ", reimbursementType=" + reimbursementType + ", requestReimbursement=" + requestReimbursement
+				+ ", emailAddress=" + emailAddress + "]";
+	}
+
 
 }

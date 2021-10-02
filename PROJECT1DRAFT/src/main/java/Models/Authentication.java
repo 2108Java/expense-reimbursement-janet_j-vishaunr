@@ -20,5 +20,9 @@ public Authentication(String username, String password) {
 	this.username = username;
 	this.password = password;
 }
+@Override
+public String toString() {
+	return "Authentication [username=" + username + ", password=" + password + "]";
+}
 
 }

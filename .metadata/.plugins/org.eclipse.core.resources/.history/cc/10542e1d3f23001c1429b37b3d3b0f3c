@@ -1,0 +1,56 @@
+package Controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import DAO.dataBaseDAO;
+import DAO.dataBaseDAOImpl;
+import Models.Employee;
+import Repo.authenticationImpl;
+import Repo.employeeServiceImpl;
+import Service.authenticationService;
+import Service.employeeService;
+
+public class Controller {
+	 employeeService serve;
+	public Controller(employeeService serve) {
+		this.serve=serve;
+	}
+	
+	public static ArrayList prettyDisplay(ArrayList<Employee> arrayList){
+		for(int i =0;i<arrayList.size();i++) {
+			if(arrayList.get(i)!= null) {
+			System.out.println(arrayList.get(i));
+			}
+		}
+		return arrayList;
+		///////needed a toString :///
+	}
+public static void main(String[] args) {
+	//Javalin app = Javalin.create().start(8452);
+	
+	dataBaseDAO data= new dataBaseDAOImpl();
+	employeeService serve = new employeeServiceImpl(data);
+	
+	Controller menu = new Controller(serve);
+	//just for testing!!!!
+	//employeeService empService = new employeeServiceImpl(data);
+	
+	//empService.viewAccount("Tom", "Albert");
+	//prettyDisplay(menu.serve.viewAccount("Tom", "Albert","Cashier",1));
+	//prettyDisplay(menu.serve.viewAllAccount());//works
+		authenticationService auth = new authenticationImpl(data);
+		if(auth.logIn("bober", "pass")) {
+			
+			System.out.println("something went through");
+		}else {
+	System.out.println("did not go through");
+		}
+	
+}
+
+
+}
+		
+
+

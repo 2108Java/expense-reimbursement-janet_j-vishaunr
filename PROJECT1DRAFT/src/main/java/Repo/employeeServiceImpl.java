@@ -1,0 +1,35 @@
+package Repo;
+
+import java.util.ArrayList;
+
+import DAO.dataBaseDAO;
+import Models.Employee;
+import Service.employeeService;
+
+public class employeeServiceImpl implements employeeService {
+
+dataBaseDAO data;
+public employeeServiceImpl(dataBaseDAO data) {
+	this.data= data;
+}
+
+	public ArrayList <Employee> viewAccount(String first_name, String last_name,String title,int id) {
+		// TODO Auto-generated method stub
+		return data.selectAccount(first_name,last_name,title,  id);
+	}
+
+	
+	public boolean requestReimbursement(String first_name, String last_name, int id, String reimbursementType,boolean requestReimbursement) {
+		// TODO Auto-generated method stub
+		return data.updateAccount(first_name,  last_name,  id, reimbursementType,requestReimbursement);
+	}
+
+	public ArrayList <Employee> viewAllAccount() {
+		// TODO Auto-generated method stub
+		return data.selectAll();
+	}
+
+
+
+
+}
