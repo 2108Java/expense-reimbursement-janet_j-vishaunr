@@ -10,7 +10,7 @@ public interface dataBaseDAO {
 
 	ArrayList <Employee> selectAccount(String first_name, String last_name,String title,int id);
 
-	boolean requestReimbursement( String last_name, int id, String reimbursementType,boolean requestReimbursement);
+	boolean requestReimbursement( String last_name, int id, String reimbursementType,String requestReimbursement);
 
 	ArrayList<Employee> selectAll();
 

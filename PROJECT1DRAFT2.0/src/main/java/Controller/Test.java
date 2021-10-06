@@ -61,7 +61,7 @@ public static void main(String[] args) {
 		//}else {
 //	System.out.println("did not go through");
 	//	}
-	menu.serve.requestReimbursement( "Albert", 1, "Food", true);
+	menu.serve.requestReimbursement( "Albert", 1, "Food", " ");
 	//menu1.reim_serve.managerApproveReimbursement(1, true);// works
 	//menu.serve.viewReimbursementStatus("", "",  1);
 }

@@ -77,16 +77,17 @@ String password1 = "LuckyTao#14";
 	}
 
 	
-	public boolean requestReimbursement(String last_name, int id, String reimbursementType,boolean requestReimbursement) {
+	public boolean requestReimbursement(String last_name, int id, String reimbursementType,String requestReimbursement) {
 		try {
 			Connection connection = DriverManager.getConnection(url, username1, password1);
 			String sql = "update reimbursement \r\n"
-					+ " set request_Reimbursement = true, reimbursement_Type = ? \r\n"
+					+ " set request_Reimbursement = ?, reimbursement_Type = ? \r\n"
 					+ "where fk2_id = ?;";
 			PreparedStatement ps = connection.prepareStatement(sql);
 	
-			ps.setString(1, reimbursementType);
-			ps.setInt(2, id);
+			ps.setString(1, requestReimbursement);
+			ps.setString(2,reimbursementType);
+			ps.setInt(3, id);
 			ps.execute();
 			
 		} catch (SQLException e) {
@@ -157,6 +158,8 @@ String password1 = "LuckyTao#14";
 		
 		return array;
 	}
+
+
 
 
 

@@ -18,7 +18,7 @@ public employeeServiceImpl(dataBaseDAO data) {
 	}
 
 	
-	public boolean requestReimbursement( String last_name, int id, String reimbursementType,boolean requestReimbursement) {
+	public boolean requestReimbursement( String last_name, int id, String reimbursementType,String requestReimbursement) {
 		return data.requestReimbursement( last_name,  id, reimbursementType,requestReimbursement);
 	}
 
