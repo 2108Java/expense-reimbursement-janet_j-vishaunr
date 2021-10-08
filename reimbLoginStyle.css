@@ -1,0 +1,101 @@
+
+.form-box{
+    width:325px;
+    max-width: 325px;
+    height: 400px;
+    align-content: center;
+    justify-content: center;
+    background: rgb(252, 249, 249);
+    padding: 2rem;
+    margin: 6rem;
+    border-radius: 5px;
+    
+}
+
+/*.form-box > *:first-child{
+    margin-top:0;
+}
+.form-box> *:last-child{
+    margin-bottom:0;
+}*/
+h1{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 36px;
+    /*background: linear-gradient(to right, pink, rgb(93, 93, 216));*/
+    background: linear-gradient(to right, rgb(26, 120, 163), rgb(235, 226, 226),rgb(233, 108, 50));
+    text-align: center;
+    height:max-content;
+    width: 325px;
+    padding: 0;
+}
+.user-input{
+    position: absolute;
+    transition: .5s;
+    top: 150px;
+    width: 280px;
+}
+.input-field{
+    display: block;
+    width: 80%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid rgb(241, 234, 234);
+    background: rgb(235, 230, 230);
+    transition: background 0.2s, border-color 0.2s;
+    /*border-bottom: 1px solid #999;*/
+}
+
+.form-btn{
+    border-radius: 15px;
+    width: 50%;
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background: linear-gradient(to right, pink, rgb(93, 93, 216));
+    position: relative;
+    /*transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+ */   
+}
+body{
+    background-color: rgb(169, 216, 218);
+    --color-back-dark: rgb(39, 65, 65);
+    --color-secondary: lightslategray;
+    --color-error: red;
+    --color-success: green;
+        
+    display: flex;
+    height:auto;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+#form-title{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-input-message{
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.form-link{
+    font-size: 16px;
+}
+
+.create-form-box{
+    width:325px;
+    max-width: 325px;
+    height: 450px;
+    align-content: center;
+    justify-content: center;
+    background: rgb(252, 249, 249);
+    padding: 2rem;
+    margin: 6rem;
+    border-radius: 5px;
+    
+}
+
