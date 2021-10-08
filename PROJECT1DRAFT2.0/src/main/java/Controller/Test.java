@@ -4,15 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import JDBC.dataBaseDAOImpl;
+import org.apache.log4j.Logger;
+
 import Models.Employee;
-import Repository.authenticationService;
-import Repository.dataBaseDAO;
-import Repository.employeeService;
-import Repository.reimburseService;
-import Service.authenticationImpl;
-import Service.employeeServiceImpl;
-import Service.reimburseServiceImpl;
+import Repository.authenticationImpl;
+import Repository.employeeDataBaseDAO;
+import Repository.employeeDataBaseDAOImpl;
+import Repository.employeeServiceImpl;
+import Repository.managerDataBaseDAO;
+import Repository.managerDataBaseDAOImpl;
+import Repository.reimburseServiceImpl;
+import Service.authenticationService;
+import Service.employeeService;
+import Service.reimburseService;
 
 public class Test {
 	 employeeService serve;
@@ -33,12 +37,15 @@ public class Test {
 		return arrayList;
 		///////needed a toString :///
 	}
+	public final static Logger loggy = Logger.getLogger(Test.class);
+
 public static void main(String[] args) {
 	//Javalin app = Javalin.create().start(8452);
-	
-	dataBaseDAO data= new dataBaseDAOImpl();
+loggy.info("So it begins");
+	employeeDataBaseDAO data= new employeeDataBaseDAOImpl();
 	employeeService serve = new employeeServiceImpl(data);
-	reimburseService reim_serve = new reimburseServiceImpl(data);
+	managerDataBaseDAO dataM= new managerDataBaseDAOImpl();
+	reimburseService reim_serve = new reimburseServiceImpl(dataM);
 	Test menu = new Test(serve);
 	Test menu1 = new Test(reim_serve);
 
@@ -61,9 +68,11 @@ public static void main(String[] args) {
 		//}else {
 //	System.out.println("did not go through");
 	//	}
-	menu.serve.requestReimbursement( "Albert", 1, "Food", " ");
+	//menu.serve.requestReimbursement( "Albert", 1, "Food", " ");
 	//menu1.reim_serve.managerApproveReimbursement(1, true);// works
 	//menu.serve.viewReimbursementStatus("", "",  1);
+	
+	//menu.serve.createAccount("Morg","Tack","Employee",100,"Morg@yahoo.com");
 }
 
 

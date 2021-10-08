@@ -8,8 +8,10 @@ public class Employee {
 	private String title;
 	private int id;
 	private String reimbursementType;
-	private boolean requestReimbursement;
+	private String requestReimbursement;
 	private String emailAddress;
+	private int amount;
+	private String description;
 	public String getFirst_Name() {
 		return first_Name;
 	}
@@ -40,14 +42,26 @@ public class Employee {
 	public void setReimbursementType(String reimbursementType) {
 		this.reimbursementType = reimbursementType;
 	}
-	public boolean isRequestReimbursement() {
+	public String isRequestReimbursement() {
 		return requestReimbursement;
 	}
-	public void setRequestReimbursement(boolean requestReimbursement) {
+	public void setRequestReimbursement(String requestReimbursement) {
 		this.requestReimbursement = requestReimbursement;
 	}
 
 
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public Employee(String first_Name, String last_name, String title, int id) {
 		super();
 		this.first_Name = first_Name;
@@ -69,7 +83,7 @@ public class Employee {
 	}
 	
 	public Employee(String first_Name, String last_name, String title, int id, String reimbursementType,
-			boolean requestReimbursement, String emailAddress) {
+			String requestReimbursement, String emailAddress) {
 		super();
 		this.first_Name = first_Name;
 		this.last_name = last_name;
@@ -78,6 +92,15 @@ public class Employee {
 		this.reimbursementType = reimbursementType;
 		this.requestReimbursement = requestReimbursement;
 		this.emailAddress = emailAddress;
+	}
+	public Employee( int id, String reimbursementType,
+			String requestReimbursement, String emailAddress) {
+		super();
+		this.id=id;
+		this.reimbursementType = reimbursementType;
+		this.amount=amount;
+		this.description=description;
+	
 	}
 	public Employee() {
 		super();

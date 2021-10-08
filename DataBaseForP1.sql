@@ -1,7 +1,7 @@
-create table Employee(first_name varchar(30),last_name varchar(30),Title varchar(30),id serial primary key);
+create table Employee(id serial primary key,first_name varchar(30),last_name varchar(30),Title varchar(30),employee_ReimburseID int,email varchar(30));
 create table EmployeeCredentials(credential_id serial primary key,username   varchar(30) unique,password varchar(30),fk_id int unique not null references Employee(id));
 
-create table Reimbursement(reimbursement_id serial  primary key,request_Reimbursement boolean,reimbursement_Type varchar(30),Approved boolean, fk2_id int unique not null references Employee(id),last_name varchar(30));
+create table Reimbursement(reimbursement_id serial  primary key,request_Reimbursement varchar(30),reimbursement_Type varchar(30),amount_Reimbursed int,Description varchar(200),Approval varchar(30), fk2_id serial  unique not null references Employee(id), employee_ReimburseID int,Date_Time  TIMESTAMP);
 
 
 
@@ -10,12 +10,12 @@ drop table employeecredentials ;
 drop table reimbursement ;
 
 
-insert into employee (first_name ,last_name ,Title)values
-	('Tom','Albert','Employee'),
-	  ('John','Jackson','Manager'),
-	  ('Jarl','Wheathers','Employee'),
-	  ('Sasha','Scnieder','Manager'),
-	  ('Kelly','Moses','Employee');
+insert into employee (first_name ,last_name ,Title,email)values
+	('Tom','Albert','Employee','TomAlbert@yahoo.com'),
+	  ('John','Jackson','Manager','JohanJackson@yahoo.com'),
+	  ('Jarl','Wheathers','Employee','JarlWheathers@yahoo.com'),
+	  ('Sasha','Scnieder','Manager','SashaScnieder@yahoo.com'),
+	  ('Kelly','Moses','Employee','KellyMoses@yahoo.com');
 
 
 insert into EmployeeCredentials (username ,password,fk_id)values
@@ -26,23 +26,23 @@ insert into EmployeeCredentials (username ,password,fk_id)values
 ('EmployeeKelly','pass',005);
 
 
-insert into reimbursement(fk2_id,last_name)
-values(001,'Albert'),
-(002,'Jackson'),
-(003,'Wheathers'),
-(004,'Scnieder'),
-(005,'Moses');
+insert into reimbursement(Approval)
+values('pending'),
+('pending'),
+('pending'),
+('pending'),
+('pending');
 
 
 select *
 from reimbursement ;
-
+<-- add a amount column, include date where they sumbit?
 select *
 from employeecredentials ;
 
 select *
 from employee;
-
+<-- send use temp password, add temp username, temp password when creating account
 
 
 

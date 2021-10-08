@@ -6,9 +6,8 @@ public class Manager {
 	private String title;
 	private int id;
 	private String emailAddress;
-///////////////////////////////////////////////////
 	private String reimbursementType;
-	private boolean requestReimbursement;
+	private String requestReimbursement;
 	private boolean approve;
 	public String getFirst_Name() {
 		return first_Name;
@@ -46,10 +45,10 @@ public class Manager {
 	public void setReimbursementType(String reimbursementType) {
 		this.reimbursementType = reimbursementType;
 	}
-	public boolean isRequestReimbursement() {
+	public String isRequestReimbursement() {
 		return requestReimbursement;
 	}
-	public void setRequestReimbursement(boolean requestReimbursement) {
+	public void setRequestReimbursement(String requestReimbursement) {
 		this.requestReimbursement = requestReimbursement;
 	}
 	public boolean isApprove() {
@@ -59,7 +58,7 @@ public class Manager {
 		this.approve = approve;
 	}
 	public Manager(String first_Name, String last_name, String title, int id, String emailAddress,
-			String reimbursementType, boolean requestReimbursement, boolean approve) {
+			String reimbursementType, String requestReimbursement, boolean approve) {
 		super();
 		this.first_Name = first_Name;
 		this.last_name = last_name;
@@ -69,6 +68,24 @@ public class Manager {
 		this.reimbursementType = reimbursementType;
 		this.requestReimbursement = requestReimbursement;
 		this.approve = approve;
+	}
+	public Manager(String first_Name, String last_name, String title, int id,String email) {
+		super();
+		this.first_Name = first_Name;
+		this.last_name = last_name;
+		this.title = title;
+		this.id = id;
+		this.emailAddress = email;
+		
+	}
+	public Manager(String requestReimbursement,String reimbursementTyp, boolean approve , int id) {
+		super();
+	this.requestReimbursement =requestReimbursement;
+	this.reimbursementType=reimbursementType;
+	this.approve = approve;
+		this.id = id;
+		
+		
 	}
 	@Override
 	public String toString() {
