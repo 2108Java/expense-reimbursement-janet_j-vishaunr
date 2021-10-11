@@ -37,7 +37,7 @@ connectionFactory conFact = new connectionFactory();
 			
 			loggy.info("Employee is authenticated");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 		
@@ -66,7 +66,6 @@ connectionFactory conFact = new connectionFactory();
 				loggy.info("Employee Selected specific account");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -74,19 +73,19 @@ connectionFactory conFact = new connectionFactory();
 	}
 
 	
-	public boolean requestReimbursement( int id, String reimbursementType,int amount,String description) {
+	public boolean requestReimbursement( int id, String reimbursementType,double amount,String description) {
 		boolean success  = false;
 
 		try {
 			Connection connection = conFact.getConnection();
 			String sql = "update reimbursement \r\n"
-					+ " set request_Reimbursement = ?, reimbursement_Type = ? \r\n,amount = ? \\r\\n,description = ? \\r\\n"
-					+ "where fk2_id = ?;";
+					+ "set reimbursement_type = ?, amount_reimbursed =?,description=?,request_date_time = current_timestamp \r\n"
+					+ "where reimbursement_id = ?;";
 			PreparedStatement ps = connection.prepareStatement(sql);
 	
 		
 			ps.setString(1,reimbursementType);
-			ps.setInt(2, amount);
+			ps.setDouble(2, amount);
 			ps.setString(3,description);
 			ps.setInt(4, id);
 			ps.execute();
@@ -130,40 +129,15 @@ connectionFactory conFact = new connectionFactory();
 
 
 	@Override
-	public boolean createEmployee(String first_name, String last_name,String title,int id,String email) {
-		boolean success = false;
-		try {
-			Connection connection = conFact.getConnection();
-			String sql= "Insert into Employee values(?,?,?,?,?);";
-			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setString(1, first_name);
-			ps.setString(2, last_name);
-			ps.setString(3, title);
-			ps.setInt(4, id);
-			ps.setString(5, email);
-			ps.execute();
-			 success = true;
-			loggy.warn("A new Employee account was created");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		
-		return success;
-	}
-
-
-	@Override
 	public boolean createEmployeeCredentials(String username, String password) {
 		boolean success = false;
 
 		try {
 			Connection connection = conFact.getConnection();
-			String sql= "Insert into employeeCredentials values(?,?);";
+			String sql= "Insert into employeeCredentials(username,password) values(?,?);";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, username);
-			ps.setString(2, "temp");
-			
+			ps.setString(2, password);
 			ps.execute();
 			 success = true;
 			 loggy.warn("Employee credentials were created");
@@ -174,7 +148,23 @@ connectionFactory conFact = new connectionFactory();
 	}
 
 
+	public boolean forgotPassword(String username,String password) {
+		boolean success = false;
 
+		try {
+			Connection connection = conFact.getConnection();
+			String sql= "Update table employeeCredentials Set username=?, password=?;";
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, username);
+			ps.setString(2, password);
+			ps.execute();
+			 success = true;
+			 loggy.warn("Employee credentials were updated");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return success;
+	}
 
 
 

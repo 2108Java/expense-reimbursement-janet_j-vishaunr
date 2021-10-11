@@ -7,7 +7,7 @@ import Models.Manager;
 public interface managerDataBaseDAO {
 	boolean selectUser(String username, String password);
 
-	ArrayList <Manager> selectAccount(String first_name, String last_name,int id);
+	ArrayList <Manager> selectAccount(String first_name, String last_name);
 
 	ArrayList<Manager> selectAll();
 
@@ -15,7 +15,7 @@ public interface managerDataBaseDAO {
 
 	ArrayList<Manager> selectReimbursementStatus(String first_name, String last_name);
 
-	boolean createEmployee(String first_name, String last_name,String title,int id,String email);
+	boolean createEmployee(int id,String first_name, String last_name,String title,String email);
 
 	boolean createEmployeeCredentials(String username, String password);
 

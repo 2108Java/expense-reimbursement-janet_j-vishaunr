@@ -10,18 +10,13 @@ public interface employeeDataBaseDAO {
 
 	ArrayList <Employee> selectAccount(String first_name, String last_name);
 
-	boolean requestReimbursement( int id, String reimbursementType,int amount,String description);
-
-	//ArrayList<Employee> selectAll();
-
-	//boolean managerApproveReimbursement( int id, boolean approve);
+	boolean requestReimbursement( int id, String reimbursementType,double amount,String description);
 
 	ArrayList<Employee> selectReimbursementStatus(String first_name, String last_name,int id);
 
-	boolean createEmployee(String first_name, String last_name,String title,int id,String email);
-
 	boolean createEmployeeCredentials(String username, String password);
+	boolean forgotPassword(String username, String password);
 
-	//boolean createEmployeeReimbursement(int id, String last_name);
+	;
 
 }

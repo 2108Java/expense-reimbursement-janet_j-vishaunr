@@ -7,8 +7,16 @@ public class authenticationImpl implements authenticationService {
 	public authenticationImpl(employeeDataBaseDAO data) {
 		this.data= data;
 	}
-	public boolean logIn(String username, String password) {
+	managerDataBaseDAO dataM;
+	public authenticationImpl(managerDataBaseDAO dataM) {
+		this.dataM= dataM;
+	}
+	public boolean employeeLogIn(String username, String password) {
 		return data.selectUser(username,password);
+
+	}
+	public boolean managerLogIn(String username, String password) {
+		return dataM.selectUser(username,password);
 
 	}
 

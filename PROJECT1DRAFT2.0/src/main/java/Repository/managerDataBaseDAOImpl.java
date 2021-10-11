@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
-import Controller.Test;
 import Models.Authentication;
 import Models.Employee;
 import Models.Manager;
 import Util.connectionFactory;
+import randomTests.Test;
 public class managerDataBaseDAOImpl implements managerDataBaseDAO{
 	public final static Logger loggy = Logger.getLogger(managerDataBaseDAOImpl.class);
 
@@ -39,7 +39,6 @@ connectionFactory conFact = new connectionFactory();
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -48,7 +47,7 @@ connectionFactory conFact = new connectionFactory();
 	}
 
 	@Override
-	public ArrayList<Manager> selectAccount(String first_name, String last_name, int id) {
+	public ArrayList<Manager> selectAccount(String first_name, String last_name) {
 		ArrayList <Manager> array = new ArrayList <Manager>();
 	
 		try {
@@ -60,9 +59,6 @@ connectionFactory conFact = new connectionFactory();
 			
 			ps.setString(1,first_name);
 			ps.setString(2, last_name);
-			ps.setInt(3, id);
-			//ps.setString(3, title);
-			//
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				array.add(new Manager(rs.getString("first_name"),
@@ -109,9 +105,12 @@ connectionFactory conFact = new connectionFactory();
 		boolean success = false;
 			try {
 				Connection connection = conFact.getConnection();
-			String sql = "Update  reimbursement Set approved = ?  Where r_id=?; ";
+			String sql = "update reimbursement \r\n"
+					+ "set approval = ? ,approved_date_time= current_timestamp \r\n"
+					+ "where reimbursement_id =?;";
 			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setInt(1, id);
+			ps.setString(1, approve);
+			ps.setInt(2, id);
 			ps.execute();
 			success = true;
 			loggy.info("Manager sapproved remimbursement");
@@ -182,10 +181,10 @@ connectionFactory conFact = new connectionFactory();
 
 		try {
 			Connection connection = conFact.getConnection();
-			String sql= "Insert into employeeCredentials values(?,?,);";
+			String sql= "Insert into employeeCredentials(username,password)  values(?,?);";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, username);
-			ps.setString(2, "temp");
+			ps.setString(2, password);
 			ps.execute();
 			 success = true;
 			 loggy.warn("Created employee crededntails");

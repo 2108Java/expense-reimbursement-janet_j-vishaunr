@@ -11,8 +11,8 @@ public managerServiceImpl(managerDataBaseDAO data) {
 	this.data= data;
 }
 
-	public ArrayList <Manager> selectAccount(String first_name, String last_name,int id) {
-		return data.selectAccount(first_name,last_name,  id);
+	public ArrayList <Manager> selectAccount(String first_name, String last_name) {
+		return data.selectAccount(first_name,last_name);
 	}
 
 
@@ -21,9 +21,9 @@ public managerServiceImpl(managerDataBaseDAO data) {
 	}
 
 	
-	public boolean createAccount(String first_name, String last_name,String title,int id,String email) {
+	public boolean createAccount(int id,String first_name, String last_name,String title,String email) {
 	
-		return data.createEmployee(first_name,  last_name,title, id, email);
+		return data.createEmployee(id,first_name,  last_name,title, email);
 	}
 
 	

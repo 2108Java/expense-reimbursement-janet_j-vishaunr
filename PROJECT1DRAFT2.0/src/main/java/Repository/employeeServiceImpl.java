@@ -27,11 +27,6 @@ public employeeServiceImpl(employeeDataBaseDAO data) {
 		return data.selectReimbursementStatus(first_name,  last_name, id);
 	}
 
-	@Override
-	public boolean createAccount(String first_name, String last_name,String title,int id,String email) {
-	
-		return data.createEmployee(first_name,  last_name,title, id, email);
-	}
 
 	@Override
 	public boolean createCredentials(String username, String password) {

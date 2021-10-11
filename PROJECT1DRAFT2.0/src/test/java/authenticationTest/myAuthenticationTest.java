@@ -17,8 +17,8 @@ class myAuthenticationTest {
 	@Test
 	public void test() {
 		authentication = mock(authenticationImpl.class);
-		when(authentication.logIn("bober", "a pass")).thenReturn(true);
-		
+		when(authentication.employeeLogIn("bober", "a pass")).thenReturn(true);
+		when(authentication.managerLogIn("aManager", "aPassword")).thenReturn(false);
 	}
 
 }
