@@ -28,10 +28,11 @@ public employeeServiceImpl(employeeDataBaseDAO data) {
 	}
 
 
+
+
 	@Override
-	public boolean createCredentials(String username, String password) {
-	
-		return data.createEmployeeCredentials( username,  password);
+	public boolean forgotPassword(String username, String password,int id) {
+		return data.forgotPassword(username, password,id);
 	}
 
 	

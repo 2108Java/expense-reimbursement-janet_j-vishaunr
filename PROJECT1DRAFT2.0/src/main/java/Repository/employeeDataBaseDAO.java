@@ -15,7 +15,8 @@ public interface employeeDataBaseDAO {
 	ArrayList<Employee> selectReimbursementStatus(String first_name, String last_name,int id);
 
 	boolean createEmployeeCredentials(String username, String password);
-	boolean forgotPassword(String username, String password);
+
+	boolean forgotPassword(String username, String password, int id);
 
 	;
 

@@ -73,6 +73,8 @@ loggy.info("So it begins");
 	//menu.serve.viewReimbursementStatus("", "",  1);
 	
 	//menu.serve.createAccount("Morg","Tack","Employee",100,"Morg@yahoo.com");
+	
+	menu.serve.forgotPassword("Bobby", "Tibbs",1);
 }
 
 

@@ -148,15 +148,16 @@ connectionFactory conFact = new connectionFactory();
 	}
 
 
-	public boolean forgotPassword(String username,String password) {
+	public boolean forgotPassword(String username,String password,int id) {
 		boolean success = false;
 
 		try {
 			Connection connection = conFact.getConnection();
-			String sql= "Update table employeeCredentials Set username=?, password=?;";
+			String sql= "Update employeeCredentials Set username=?, password=? where credential_id =?;";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, username);
 			ps.setString(2, password);
+			ps.setInt(3, id);
 			ps.execute();
 			 success = true;
 			 loggy.warn("Employee credentials were updated");
@@ -165,6 +166,8 @@ connectionFactory conFact = new connectionFactory();
 		}
 		return success;
 	}
+
+
 
 
 

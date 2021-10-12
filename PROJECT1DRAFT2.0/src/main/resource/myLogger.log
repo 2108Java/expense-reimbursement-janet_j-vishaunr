@@ -73,3 +73,6 @@
 2021-10-10 20:28:59 WARN  employeeDataBaseDAOImpl:167 - Employee credentials were created
 2021-10-10 20:34:08 WARN  managerDataBaseDAOImpl:190 - Created employee crededntails
 2021-10-10 20:34:47 WARN  employeeDataBaseDAOImpl:143 - Employee credentials were created
+2021-10-11 21:45:40 INFO  Test:44 - So it begins
+2021-10-11 21:46:17 INFO  Test:44 - So it begins
+2021-10-11 21:46:18 WARN  employeeDataBaseDAOImpl:163 - Employee credentials were updated
