@@ -16,14 +16,14 @@ public class managerFunctionTests {
 	
 	when(selectUser.approveReimbursement(0, "denied")).thenReturn(false);
 	
-	when(selectUser.createEmployee("Jim", "Bo", "Manager", 11, "JimBo@gmail.com")).thenReturn(false);
+	when(selectUser.createEmployee(12,"Jim", "Bo", "Manager", "JimBo@gmail.com")).thenReturn(false);
 	
 
 	ArrayList<Manager>  mock = new ArrayList<Manager>();
 	when(selectUser.selectAll()).thenReturn(mock);
 	
 	
-	when(selectUser.selectAccount("sally", "parker", 100)).thenReturn(mock);
+	when(selectUser.selectAccount("sally", "parker")).thenReturn(mock);
 	
 	when(selectUser.selectReimbursementStatus("Gimli", "Dwarf")).thenReturn(mock);
 	when(selectUser.createEmployeeCredentials("Username", " ")).thenReturn(true);

@@ -6,9 +6,11 @@ import Repository.managerServiceImpl;
 import Service.employeeService;
 import Service.managerService;
 
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 
 import Repository.employeeDataBaseDAO;
 import Repository.employeeDataBaseDAOImpl;
@@ -27,16 +29,23 @@ public void why() {
 	
 	System.out.println("Checking if credentials work");
 }
+@Before
+public void testCreateEmployeeAccount() {
+	Assert.assertTrue(newManagerService.createAccount(6, "Tom", "Bombadil", "manOfMystery", "verySpooky@gmail.com"));
+}
 
 
 	@Test
-public void Test() {
+public void testCreateEmployeeCredentials() {
+		
 
-
-Assertions.assertTrue(newService.createCredentials("myNewUserName3", "myNewPassword3"));
+		Assert.assertTrue(newManagerService.createCredentials("myNewUserName3", "myNewPassword3"));
+		// there must be an employee to create credentials for
+		// create a new employee account to test
 	
 	
 	
 	
 }
+
 }

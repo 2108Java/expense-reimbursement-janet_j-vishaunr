@@ -15,7 +15,6 @@ public class employeeFunctionTest {
 public void test() {
 	userSelect  = mock(employeeDataBaseDAOImpl.class);
 	
-	when(userSelect.createEmployee(205,"Cameron", "Kamp", "Employee", "CamKam@gmail.com")).thenReturn(true);
 	
 	when(userSelect.createEmployeeCredentials("myUserName"," temp" )).thenReturn(false);
 	

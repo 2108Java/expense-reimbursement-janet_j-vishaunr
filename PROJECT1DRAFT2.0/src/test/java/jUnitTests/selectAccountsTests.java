@@ -3,9 +3,9 @@ package jUnitTests;
 import java.util.ArrayList;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 
 import Repository.employeeDataBaseDAO;
 import Repository.employeeDataBaseDAOImpl;
@@ -32,10 +32,10 @@ public class selectAccountsTests {
 	@Test 
 public void selectAccountByEmployeeFirstLastName() {
 
-	Assertions.assertEquals(newEmployeeService.selectAccount("first_name", "last_name"), mock);
+	Assert.assertEquals(newEmployeeService.selectAccount("first_name", "last_name"), mock);
 }
 public void selectAllAccountsByManager() {
-	Assertions.assertEquals(newManagerService.selectAllAccount(), mock);
+	Assert.assertEquals(newManagerService.selectAllAccount(), mock);
 
 }
 }

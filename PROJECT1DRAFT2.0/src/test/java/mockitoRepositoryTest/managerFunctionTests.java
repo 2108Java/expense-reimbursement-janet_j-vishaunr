@@ -16,7 +16,7 @@ public class managerFunctionTests {
 	
 	when(selectUser.approveReimbursement(0, "denied")).thenReturn(false);
 	
-	when(selectUser.createEmployee("Jim", "Bo", "Manager", 11, "JimBo@gmail.com")).thenReturn(false);
+	when(selectUser.createEmployee(12,"Jim", "Bo", "Manager", "JimBo@gmail.com")).thenReturn(false);
 	
 
 	ArrayList<Manager>  mock = new ArrayList<Manager>();

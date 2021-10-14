@@ -30,10 +30,11 @@ public employeeServiceImpl(employeeDataBaseDAO data) {
 
 
 
-	@Override
+
 	public boolean forgotPassword(String username, String password,int id) {
 		return data.forgotPassword(username, password,id);
 	}
+
 
 	
 

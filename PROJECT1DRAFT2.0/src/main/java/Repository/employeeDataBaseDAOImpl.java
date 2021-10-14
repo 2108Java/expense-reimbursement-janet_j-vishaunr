@@ -1,12 +1,10 @@
 package Repository;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -14,8 +12,11 @@ import Models.Authentication;
 import Models.Employee;
 import Util.connectionFactory;
 public class employeeDataBaseDAOImpl implements employeeDataBaseDAO {
-	Logger loggy = Logger.getLogger(employeeDataBaseDAOImpl.class);
-connectionFactory conFact = new connectionFactory();
+	
+	Logger logger = Logger.getLogger(employeeDataBaseDAOImpl.class);
+	connectionFactory conFact = new connectionFactory();
+
+
 	public boolean selectUser(String username, String password) {
 		ArrayList<Authentication> array = new ArrayList<Authentication>();
 		boolean success = false;
@@ -35,7 +36,7 @@ connectionFactory conFact = new connectionFactory();
 			}
 			success =true;
 			
-			loggy.info("Employee is authenticated");
+			logger.info("Employee is authenticated");
 		} catch (SQLException e) {
 		
 			e.printStackTrace();
@@ -63,7 +64,7 @@ connectionFactory conFact = new connectionFactory();
 						rs.getString("last_name"),
 						rs.getString("title"),
 						rs.getInt("id")));
-				loggy.info("Employee Selected specific account");
+				logger.info("Employee Selected specific account");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -90,7 +91,7 @@ connectionFactory conFact = new connectionFactory();
 			ps.setInt(4, id);
 			ps.execute();
 			success = true;
-			loggy.info("Employee requested a reimbursement");
+			logger.info("Employee requested a reimbursement");
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -116,7 +117,7 @@ connectionFactory conFact = new connectionFactory();
 						rs.getString("reimbursement_Type"),
 						rs.getString("Approved"),
 						rs.getInt("R_id")));
-				loggy.info("Employee viewed reimbursement status");
+				logger.info("Employee viewed reimbursement status");
 			}
 		} catch (SQLException e) {
 			
@@ -128,7 +129,6 @@ connectionFactory conFact = new connectionFactory();
 
 
 
-	@Override
 	public boolean createEmployeeCredentials(String username, String password) {
 		boolean success = false;
 
@@ -140,7 +140,7 @@ connectionFactory conFact = new connectionFactory();
 			ps.setString(2, password);
 			ps.execute();
 			 success = true;
-			 loggy.warn("Employee credentials were created");
+			 logger.warn("Employee credentials were created");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -160,7 +160,7 @@ connectionFactory conFact = new connectionFactory();
 			ps.setInt(3, id);
 			ps.execute();
 			 success = true;
-			 loggy.warn("Employee credentials were updated");
+			 logger.warn("Employee credentials were updated");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

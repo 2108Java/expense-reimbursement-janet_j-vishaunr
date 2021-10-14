@@ -10,9 +10,9 @@ import Service.employeeService;
 import Service.managerService;
 import Service.authenticationService;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 
 import Repository.authenticationImpl;
 
@@ -34,9 +34,9 @@ public void whyTest() {
 @Test	
 public void authentication() {
 
-	Assertions.assertTrue(auth.employeeLogIn(" userName", "password"));
+	Assert.assertTrue(auth.employeeLogIn(" userName", "password"));
 	
-	Assertions.assertFalse(auth1.managerLogIn("aName", "aPass"));
+	Assert.assertFalse(auth1.managerLogIn("aName", "aPass"));
 		
 }
 }

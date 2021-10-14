@@ -7,8 +7,6 @@ import org.jetbrains.annotations.TestOnly;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-
 import Repository.employeeDataBaseDAO;
 import Repository.employeeDataBaseDAOImpl;
 import Repository.employeeServiceImpl;
@@ -28,7 +26,6 @@ public class serviceTestForPrimaryKeyDup {
 	public void dummyCreateAccountToCheckForDuplicatePrimaryKeyConstraint() throws SQLException {
 		
 		
-			Assertions.assertTrue(newService.createAccount(1,"first_name", "last_name", "title", "Email"));
 	}
 	
 	
