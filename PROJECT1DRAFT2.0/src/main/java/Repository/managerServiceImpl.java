@@ -36,8 +36,18 @@ public managerServiceImpl(managerDataBaseDAO data) {
 		return data.selectAll();
 	}
 
-	public boolean createAccountReimbursement(int id, String last_name) {
-		return data.createEmployeeReimbursement(id, last_name);
+	public boolean createAccountReimbursement(int id) {
+		return data.createEmployeeReimbursement(id);
+	}
+
+	
+	public boolean forgotPassword(String password, int id) {
+		return data.forgotPassword(password,id);
+	}
+
+
+	public boolean accountReset(String username, String password, int id) {
+		return data.accountReset(username,password,id);
 	}
 
 

@@ -148,7 +148,26 @@ public class employeeDataBaseDAOImpl implements employeeDataBaseDAO {
 	}
 
 
-	public boolean forgotPassword(String username,String password,int id) {
+	public boolean forgotPassword(String password,int id) {
+		boolean success = false;
+
+		try {
+			Connection connection = conFact.getConnection();
+			String sql= "Update employeeCredentials Set  password=? where credential_id =?;";
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, password);
+			ps.setInt(2, id);
+			ps.execute();
+			 success = true;
+			 logger.warn("Employee credentials were updated");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return success;
+	}
+
+
+	public boolean accountReset(String username, String password, int id) {
 		boolean success = false;
 
 		try {

@@ -16,7 +16,9 @@ public interface employeeDataBaseDAO {
 
 	boolean createEmployeeCredentials(String username, String password);
 
-	boolean forgotPassword(String username, String password, int id);
+	boolean forgotPassword( String password, int id);
+
+	boolean accountReset(String username, String password, int id);
 
 	;
 

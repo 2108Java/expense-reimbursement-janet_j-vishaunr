@@ -12,7 +12,7 @@ import Models.Authentication;
 import Models.Manager;
 import Util.connectionFactory;
 public class managerDataBaseDAOImpl implements managerDataBaseDAO{
-	public final static Logger loggy = Logger.getLogger(managerDataBaseDAOImpl.class);
+	public final static Logger logger = Logger.getLogger(managerDataBaseDAOImpl.class);
 
 connectionFactory conFact = new connectionFactory();
 	
@@ -33,7 +33,7 @@ connectionFactory conFact = new connectionFactory();
 				array.add(new Authentication(rs.getString("username"),
 						rs.getString("password")));
 				success =true;
-				loggy.info(" Manager authenticated");
+				logger.info(" Manager authenticated");
 			}
 			
 		} catch (SQLException e) {
@@ -64,7 +64,7 @@ connectionFactory conFact = new connectionFactory();
 						rs.getString("title"),
 						rs.getInt("id"),
 						rs.getString("email")));
-				loggy.info("Manager selected specific account by first and last name");
+				logger.info("Manager selected specific account by first and last name");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -88,7 +88,7 @@ connectionFactory conFact = new connectionFactory();
 						rs.getString("title"),
 						rs.getInt("id"),
 						rs.getString("email")));
-				loggy.info("Manager select all accounts");
+				logger.info("Manager select all accounts");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -110,7 +110,7 @@ connectionFactory conFact = new connectionFactory();
 			ps.setInt(2, id);
 			ps.execute();
 			success = true;
-			loggy.info("Manager sapproved remimbursement");
+			logger.info("Manager sapproved remimbursement");
 
 			}catch(SQLException e) {
 				e.printStackTrace();
@@ -162,7 +162,7 @@ connectionFactory conFact = new connectionFactory();
 			ps.setString(5, email);
 			ps.execute();
 			 success = true;
-			 loggy.warn("Created a new employee");
+			 logger.warn("Created a new employee");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -184,7 +184,7 @@ connectionFactory conFact = new connectionFactory();
 			ps.setString(2, password);
 			ps.execute();
 			 success = true;
-			 loggy.warn("Created employee crededntails");
+			 logger.warn("Created employee crededntails");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -193,19 +193,59 @@ connectionFactory conFact = new connectionFactory();
 	}
 
 	
-	public boolean createEmployeeReimbursement(int id, String last_name) {
+	public boolean createEmployeeReimbursement(int id) {
 		boolean success = false;
 
 		try {
 			Connection connection = conFact.getConnection();
-			String sql= "Insert into employeeCredentials(username,password) values(?,?);";
+			String sql= "Insert into reimbursement(reimbursement_id) values(?);";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, id);
-			ps.setString(2, last_name);
 			ps.execute();
 			 success = true;
-			 loggy.warn("Created reimbursement row for employee");
+			 logger.warn("Created reimbursement row for employee");
 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return success;
+	}
+
+
+	public boolean forgotPassword(String password, int id) {
+		
+		boolean success = false;
+
+		try {
+			Connection connection = conFact.getConnection();
+			String sql= "Update employeeCredentials Set password=? where credential_id =?;";
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, password);
+			ps.setInt(2, id);
+			ps.execute();
+			 success = true;
+			 logger.warn("Employee credentials were updated");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return success;
+	}
+
+
+	
+	public boolean accountReset(String username, String password, int id) {
+		boolean success = false;
+
+		try {
+			Connection connection = conFact.getConnection();
+			String sql= "Update employeeCredentials Set username=?, password=? where credential_id =?;";
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, username);
+			ps.setString(2, password);
+			ps.setInt(3, id);
+			ps.execute();
+			 success = true;
+			 logger.warn("Employee credentials were updated");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

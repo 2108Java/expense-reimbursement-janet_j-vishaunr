@@ -31,8 +31,14 @@ public employeeServiceImpl(employeeDataBaseDAO data) {
 
 
 
-	public boolean forgotPassword(String username, String password,int id) {
-		return data.forgotPassword(username, password,id);
+	public boolean forgotPassword( String password,int id) {
+		return data.forgotPassword( password,id);
+	}
+
+	@Override
+	public boolean accountReset(String username, String password, int id) {
+		
+		return data.accountReset(username, password,id);
 	}
 
 

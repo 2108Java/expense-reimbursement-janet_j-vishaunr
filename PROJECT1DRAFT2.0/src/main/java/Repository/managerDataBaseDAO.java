@@ -19,5 +19,9 @@ public interface managerDataBaseDAO {
 
 	boolean createEmployeeCredentials(String username, String password);
 
-	boolean createEmployeeReimbursement(int id, String last_name);
+	boolean createEmployeeReimbursement(int id);
+
+	boolean forgotPassword(String password, int id);
+
+	boolean accountReset(String username, String password, int id);
 }
